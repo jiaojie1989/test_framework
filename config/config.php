@@ -31,7 +31,7 @@ define('MODULE_DIR', WEB_ROOT . DS . 'modules');
 define('PLUGIN_DIR', WEB_ROOT . DS . 'plugins');
 define('TEMPLATES_DIR', WEB_ROOT . DS . 'templates');
 
-require LIB_DIR . DS . 'common/autoload.class.php';
-\common\autoload::register();
-\common\core\autoload::register();
+require LIB_DIR . DS . 'zwp/autoload.class.php';
+\zwp\autoload::register();
+\zwp\core\autoload::register();
 

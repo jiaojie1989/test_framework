@@ -9,7 +9,7 @@
  * Enjoy it!
  */
 
-namespace common\core;
+namespace zwp\core;
 
 /**
  *
@@ -48,7 +48,7 @@ class autoload {
             return;
         ini_set('unserialize_callback_func', 'spl_autoload_call');
         if (false === spl_autoload_register(array(self::getInstance(), 'autoload'))) {
-            throw new Exception(sprintf('Unable to register %s::autoload as an autoloading method.', get_class(self::getInstance())));
+            throw new \Exception(sprintf('Unable to register %s::autoload as an autoloading method.', get_class(self::getInstance())));
         }
         self::$registered = true;
     }

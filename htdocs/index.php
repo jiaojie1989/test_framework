@@ -18,9 +18,20 @@
  */
 
 require __DIR__ . '/../config/config.php';
+require __DIR__ . '/../config/site_config.php';
 
-\common\core\autoload::addPath(MODULE_DIR);
-\common\core\autoload::addPath(PLUGIN_DIR);
-\common\core\autoload::addPath(LIB_DIR);
+\zwp\config::set('core_bootstrap_class', '\common\core\bootstrap');
 
-\test\test2::see();
+\zwp\core\autoload::addPath(MODULE_DIR);
+\zwp\core\autoload::addPath(PLUGIN_DIR);
+\zwp\core\autoload::addPath(LIB_DIR);
+
+$config = \zwp\config::getConfig();
+
+\zwp\db::setOptions(\zwp\config::get('zwp_db_mysql_249'));
+
+$db = \zwp\factory::getTable('t_cms_user');
+
+$ret = $db->selectOne('*', array('is_del' => 0));
+
+var_dump($ret);
